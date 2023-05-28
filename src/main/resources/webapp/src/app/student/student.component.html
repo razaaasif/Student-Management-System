@@ -1,0 +1,144 @@
+<div class="card">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <button
+        pButton
+        pRipple
+        label="Add New Student"
+        icon="pi pi-plus"
+        class="p-button-success p-mr-2"
+        (click)="openNew()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Delete Selected Student"
+        icon="pi pi-trash"
+        class="p-button-danger ml-2"
+        (click)="deleteSelectedProducts()"
+        [disabled]="!selectedStudents || !selectedStudents.length"
+      ></button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <p-fileUpload
+        mode="basic"
+        accept="image/*"
+        [maxFileSize]="1000000"
+        label="Import"
+        chooseLabel="Import"
+        class="p-mr-2 p-d-inline-block"
+      ></p-fileUpload>
+      <button
+        pButton
+        pRipple
+        label="Export"
+        icon="pi pi-upload"
+        class="p-button-help ml-2"
+      ></button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="students"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="['rollNumber', 'firstName', 'lastName', 'email']"
+    [tableStyle]="{ 'min-width': '100%' }"
+    [(selection)]="selectedStudents"
+    [rowHover]="true"
+    dataKey="rollNumber"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+    (onFilter)="onFilter($event)"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Students&nbsp;({{ studentLength }})</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            [(ngModel)]="filterText"
+            type="text"
+            (input)="
+              dt.filterGlobal($event.target.value, 'contains');
+              onChange($event.target.value)
+            "
+            placeholder="Search..."
+            class="p-inputtext p-component p-element"
+            (ngModelChange)="onChange()"
+          />
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr class="flex-column">
+        <th style="width: 8%" class="text-center">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th style="width: 17%" pSortableColumn="rollNumber">
+          <div class="flex-row space-between">
+            Roll Number
+            <p-sortIcon field="rollNumber"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="firstName">
+          <div class="flex-row space-between">
+            First Name <p-sortIcon field="firstName"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="lastName">
+          <div class="flex-row space-between">
+            Last Name <p-sortIcon field="lastName"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="email">
+          <div class="flex-row space-between">
+            Email <p-sortIcon field="email"></p-sortIcon>
+          </div>
+        </th>
+
+        <th style="width: 17%" class="text-center">Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td class="text-center">
+          <p-tableCheckbox [value]="student"></p-tableCheckbox>
+        </td>
+        <td>{{ student.rollNumber }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.email }}</td>
+
+        <td class="text-center">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editProduct(product)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteProduct(product)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr *ngIf="students == null || students?.length < 1">
+        <td [attr.colspan]="6" class="text-center">
+          <span class="text-info"> No Students has been Configured.</span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
