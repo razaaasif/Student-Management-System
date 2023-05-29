@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.raza.sms.dao.interfaces.StudentDAO;
 import com.raza.sms.entity.Student;
+import com.raza.sms.utils.Constants.BRANCH;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -32,8 +33,8 @@ public class StudentController {
 	@Transactional
 	public void loadStudent() {
 		this.students = new ArrayList<>();
-		students.add(new Student("Aasif", "Raza " , "aasifraza@gmail.com"));
-		students.add(new Student("Kashif", "Raza ","kasifraza@gmail.com"));
+		students.add(new Student("Aasif", "Raza" , "aasifraza@gmail.com", BRANCH.COMPUTER_SCIECNE_ENGINEERING.getValue()));
+		students.add(new Student("Aasif", "Raza" , "aasifraza@gmail.com", BRANCH.ELECTRICAL_ENGINEERING.getValue()));
 		this.studentDAO.saveAll(this.students);
 	}
 

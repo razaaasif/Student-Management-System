@@ -17,14 +17,16 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String branch;
 
 	public Student() {
 	}
 
-	public Student(String firstName, String lastName, String email) {
+	public Student(String firstName, String lastName, String email , String branch) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.branch = branch;
 	}
 
 	public String getFirstName() {
@@ -61,12 +63,22 @@ public class Student {
 		this.email = email;
 	}
 
+	
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [rollNumber=" + rollNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + "]";
+				+ email + ", branch=" + branch + "]";
 	}
 
+	
 	 
 }
 
