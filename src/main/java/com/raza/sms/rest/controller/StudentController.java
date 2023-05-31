@@ -25,7 +25,7 @@ import com.raza.sms.utils.Constants.BRANCH;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class StudentController {
 	private List<Student> students;
 	private StudentDAO studentDAO;

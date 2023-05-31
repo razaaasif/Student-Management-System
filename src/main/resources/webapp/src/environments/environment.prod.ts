@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  appUrl: 'http://localhost:8080',
+  appUrl: 'https://student-management-system-production-1b36.up.railway.app',
 };
