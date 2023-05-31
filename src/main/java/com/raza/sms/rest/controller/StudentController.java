@@ -22,6 +22,7 @@ import com.raza.sms.entity.Student;
 import com.raza.sms.rest.dto.StudentSaveJson;
 import com.raza.sms.rest.response.MessageResponse;
 import com.raza.sms.utils.Constants.BRANCH;
+import com.raza.sms.utils.Constants.MessageResponseType;
 
 @RestController
 @RequestMapping("/api")
@@ -59,7 +60,6 @@ public class StudentController {
 	}
 
 	@PutMapping("/students")
-
 	public MessageResponse persist(@RequestBody StudentSaveJson toSave) {
 		StudentSaveJson save = new StudentSaveJson(toSave);
 
@@ -67,11 +67,10 @@ public class StudentController {
 			if (null != save.getDeleteData() && save.getDeleteData().size() > 0) {
 				this.studentDAO.deleteAllByIdInBatch(save.getDeleteData());
 			}
-			return new MessageResponse("generic_success");
-
+			return new MessageResponse(MessageResponseType.GENERIC_SUCCESS, "Students Saved.");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new MessageResponse("generic_error");
+			return new MessageResponse(MessageResponseType.GENERIC_ERROR, e.getMessage());
 		}
 
 	}

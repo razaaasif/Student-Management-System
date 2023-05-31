@@ -6,11 +6,13 @@ import {
 } from '../shared/model/student.component.model';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { SMSMessageService } from '../shared/services/component-services/sms-message-service';
 import {
   deepCopy,
   isNullOrEmptyArray,
   isNullOrEmptyString,
 } from '../shared/utils';
+import { MessageResponseTypes } from '../shared/model/message/messsage-response.model';
 
 @Component({
   selector: 'app-student',
@@ -31,12 +33,19 @@ export class StudentComponent implements OnInit {
   hasNewItem: boolean = false;
   constructor(
     private http: StudentService,
-    private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private message: MessageService
   ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+  loadData(): void {
     this.deletedStudent = new Array<string>();
+    this.selectedStudents = new Array<StudentModel>();
+    this.isChanged = false;
+    this.isDeleted = false;
+    this.hasNewItem = false;
     this.http.getStudents().subscribe(
       (data) => {
         console.log('Students data RESPONSE ->' + JSON.stringify(data));
@@ -127,7 +136,14 @@ export class StudentComponent implements OnInit {
     console.log('toSave : ' + JSON.stringify(toSave));
 
     this.http.persistStudents(toSave).subscribe((response) => {
-      console.log('Response : ' + response);
+      console.log('Response : ' + JSON.stringify(response));
+      this.message.add({
+        summary: response.message,
+        severity:
+          response.messageType === MessageResponseTypes.GENERIC_ERROR
+            ? 'error'
+            : 'success',
+      });
       this.isDeleted = false;
       this.hasNewItem = false;
     });

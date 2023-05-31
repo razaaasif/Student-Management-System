@@ -15,10 +15,16 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastModule } from 'primeng/toast';
 @NgModule({
   declarations: [AppComponent, StudentComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -32,6 +38,9 @@ import { FormsModule } from '@angular/forms';
     FileUploadModule,
     NgbModule,
     ButtonModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

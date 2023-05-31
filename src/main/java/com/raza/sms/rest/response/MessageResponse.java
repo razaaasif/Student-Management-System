@@ -1,28 +1,39 @@
 package com.raza.sms.rest.response;
 
+import com.raza.sms.utils.Constants.MessageResponseType;
+
 public class MessageResponse {
+	private MessageResponseType messageType;
 	private String message;
-
-	public MessageResponse() {
-		// TODO Auto-generated constructor stub
+	public MessageResponse(MessageResponseType messageType, String message) {
+		super();
+		this.messageType = messageType;
+		this.message = message;
 	}
-
-	public MessageResponse(String str) {
-		this.message = str;
+	/**
+	 * @return the messageType
+	 */
+	public MessageResponseType getMessageType() {
+		return messageType;
 	}
-
+	/**
+	 * @param messageType the messageType to set
+	 */
+	public void setMessageType(MessageResponseType messageType) {
+		this.messageType = messageType;
+	}
 	/**
 	 * @return the message
 	 */
 	public String getMessage() {
 		return message;
 	}
-
 	/**
 	 * @param message the message to set
 	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
+	 
+	
 }

@@ -1,3 +1,4 @@
+import { Message } from 'primeng/api';
 export function isNullOrEmptyString(str: string): boolean {
   return null == str || str.trim().length === 0 ? true : false;
 }
