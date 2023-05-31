@@ -35,5 +35,13 @@ public class StudentManagementSystemApplication {
 		students.add(new Student("Kashif", "Raza" , "aasifraza@gmail.com", BRANCH.ELECTRICAL_ENGINEERING.getValue()));
 		this.studentDAO.saveAll(this.students);
 	}
+	
+	 @Controller
+	    public static class HomeController {
+	        @RequestMapping("/")
+	        public String index() {
+	            return "index.html";
+	        }
+	    }
 
 }
