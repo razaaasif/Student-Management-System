@@ -13,7 +13,7 @@ public class Student {
 	@Id
 	@GenericGenerator(name = "student_id_generator", strategy = "com.raza.sms.utils.StudentIdGenerator")
 	@GeneratedValue(generator = "student_id_generator")
-	private String rollNumber;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -22,7 +22,7 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(String firstName, String lastName, String email , String branch) {
+	public Student(String firstName, String lastName, String email, String branch) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -44,15 +44,17 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
 
 	public String getRollNumber() {
-		return rollNumber;
+		return this.id;
 	}
 
-	public void setRollNumber(String rollNumber) {
-		this.rollNumber = rollNumber;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -63,7 +65,6 @@ public class Student {
 		this.email = email;
 	}
 
-	
 	public String getBranch() {
 		return branch;
 	}
@@ -74,11 +75,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [rollNumber=" + rollNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+		return "Student [rollNumber=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
 				+ email + ", branch=" + branch + "]";
 	}
 
-	
-	 
 }
-

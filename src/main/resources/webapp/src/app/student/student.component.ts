@@ -16,7 +16,7 @@ export class StudentComponent implements OnInit {
   students: Student[];
   selectedStudents: Student[];
   filterText: string;
-  studentLength: string;
+  studentLength: string = '0';
   constructor(
     private http: StudentService,
     private messageService: MessageService,
@@ -24,13 +24,20 @@ export class StudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.http.getStudents().subscribe((data) => {
-      this.students = data;
-      this.studentLength = isNullOrEmptyArray(this.students)
-        ? '0'
-        : this.students.length + '';
-      console.log('students : ' + JSON.stringify(this.students));
-    });
+    this.http.getStudents().subscribe(
+      (data) => {
+        console.log('Students data RESPONSE ->' + JSON.stringify(data));
+        this.students = data;
+        this.studentLength = isNullOrEmptyArray(this.students)
+          ? '0'
+          : this.students.length + '';
+        console.log('students : ' + JSON.stringify(this.students));
+      },
+      (erro) => {
+        this.students = [];
+        console.log('Error -> ' + JSON.stringify(erro));
+      }
+    );
   }
 
   openNew(): void {}
@@ -57,5 +64,17 @@ export class StudentComponent implements OnInit {
         ? '0'
         : this.students.length + '';
     }
+  }
+
+  delete(rollNumber: string, index: number): void {
+    console.log('RollNumber : ' + rollNumber + ' , index: ' + index);
+    this.students?.splice(index, 1);
+    console.log('students ' + JSON.stringify(this.students));
+    this.updateStudentCount();
+  }
+  updateStudentCount(): void {
+    this.studentLength = isNullOrEmptyArray(this.students)
+      ? '0'
+      : this.students.length + '';
   }
 }

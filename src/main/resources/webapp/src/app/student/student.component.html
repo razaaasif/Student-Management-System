@@ -21,19 +21,18 @@
     </ng-template>
 
     <ng-template pTemplate="right">
-      <p-fileUpload
-        mode="basic"
-        accept="image/*"
-        [maxFileSize]="1000000"
-        label="Import"
-        chooseLabel="Import"
-        class="p-mr-2 p-d-inline-block"
-      ></p-fileUpload>
       <button
         pButton
         pRipple
-        label="Export"
-        icon="pi pi-upload"
+        label="Cancel"
+        icon="pi pi-undo"
+        class="p-button-help ml-2"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Save"
+        icon="pi pi-save"
         class="p-button-help ml-2"
       ></button>
     </ng-template>
@@ -105,7 +104,7 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-student>
+    <ng-template pTemplate="body" let-student let-index="rowIndex">
       <tr>
         <td class="text-center">
           <p-tableCheckbox [value]="student"></p-tableCheckbox>
@@ -128,15 +127,17 @@
             pRipple
             icon="pi pi-trash"
             class="p-button-rounded p-button-warning"
-            (click)="deleteProduct(product)"
+            (click)="delete(student.rollNumber, index)"
           ></button>
         </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
       <tr *ngIf="students == null || students?.length < 1">
-        <td [attr.colspan]="6" class="text-center">
-          <span class="text-info"> No Students has been Configured.</span>
+        <td [attr.colspan]="6" class="text-left ml-4">
+          <span style="color: #b81717 !important">
+            No Students has been Configured.</span
+          >
         </td>
       </tr>
     </ng-template>

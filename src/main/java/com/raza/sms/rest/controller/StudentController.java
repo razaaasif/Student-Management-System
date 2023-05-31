@@ -18,8 +18,8 @@ import com.raza.sms.dao.interfaces.StudentDAO;
 import com.raza.sms.entity.Student;
 import com.raza.sms.utils.Constants.BRANCH;
 
-@CrossOrigin("http://localhost:4200")
-@RestController
+//@CrossOrigin("http://localhost:4200")
+//@RestController
 public class StudentController {
 	private List<Student> students;
 	private StudentDAO studentDAO ;
@@ -50,6 +50,4 @@ public class StudentController {
 		if(st.isPresent())this.studentDAO.delete(st.get());
 		return new Message(st.isPresent() ? st.toString() : null, null, false);
 	}
-
-
 }
