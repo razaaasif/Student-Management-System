@@ -17,7 +17,7 @@ import { MessageResponseTypes } from '../shared/model/message/messsage-response.
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  providers: [MessageService, ConfirmationService],
+  providers: [MessageService],
 })
 export class StudentComponent implements OnInit {
   @ViewChild('dt') dt: Table;
@@ -31,11 +31,7 @@ export class StudentComponent implements OnInit {
   isDeleted: boolean;
   deletedStudent: Array<string> = new Array<string>();
   hasNewItem: boolean = false;
-  constructor(
-    private http: StudentService,
-    private confirmationService: ConfirmationService,
-    private message: MessageService
-  ) {}
+  constructor(private http: StudentService, private message: MessageService) {}
 
   ngOnInit(): void {
     this.loadData();
