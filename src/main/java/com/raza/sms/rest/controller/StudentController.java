@@ -3,6 +3,7 @@ package com.raza.sms.rest.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -66,6 +67,10 @@ public class StudentController {
 		try {
 			if (null != save.getDeleteData() && save.getDeleteData().size() > 0) {
 				this.studentDAO.deleteAllByIdInBatch(save.getDeleteData());
+			}
+
+			if (null != save.getSaveData() && save.getSaveData().size() > 0) {
+				this.studentDAO.saveAll(save.getSaveData());
 			}
 			return new MessageResponse(MessageResponseType.GENERIC_SUCCESS, "Students Saved.");
 		} catch (Exception e) {

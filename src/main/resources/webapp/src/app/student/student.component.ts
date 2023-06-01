@@ -13,6 +13,12 @@ import {
   isNullOrEmptyString,
 } from '../shared/utils';
 import { MessageResponseTypes } from '../shared/model/message/messsage-response.model';
+import {
+  DialogService,
+  DynamicDialogConfig,
+  DynamicDialogRef,
+} from 'primeng/dynamicdialog';
+import { EditStudentComponent } from './edit-student.component/edit-student.component';
 
 @Component({
   selector: 'app-student',
@@ -31,7 +37,11 @@ export class StudentComponent implements OnInit {
   isDeleted: boolean;
   deletedStudent: Array<string> = new Array<string>();
   hasNewItem: boolean = false;
-  constructor(private http: StudentService, private message: MessageService) {}
+  constructor(
+    private http: StudentService,
+    private message: MessageService,
+    private dialog: DialogService
+  ) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -63,7 +73,12 @@ export class StudentComponent implements OnInit {
     );
   }
 
-  openNew(): void {}
+  addNewStudent(): void {
+    const ref: DynamicDialogRef = this.dialog.open(
+      EditStudentComponent,
+      EditStudentComponent.DILAOG_CONFIG
+    );
+  }
 
   onFilter(filter: any): void {
     if (isNullOrEmptyString(this.filterText)) {

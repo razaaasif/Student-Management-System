@@ -214,3 +214,7 @@
 .text-right {
   text-align: right !important;
 }
+
+.text-uppercase {
+  text-transform: uppercase;
+}

@@ -17,11 +17,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastModule } from 'primeng/toast';
+import { EditStudentComponent } from './student/edit-student.component/edit-student.component';
 @NgModule({
-  declarations: [AppComponent, StudentComponent],
+  declarations: [AppComponent, StudentComponent, EditStudentComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,8 +43,9 @@ import { ToastModule } from 'primeng/toast';
     MessagesModule,
     MessageModule,
     ToastModule,
+    DynamicDialogModule,
   ],
-  providers: [],
+  providers: [DialogService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
