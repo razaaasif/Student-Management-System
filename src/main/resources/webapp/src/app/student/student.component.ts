@@ -23,6 +23,25 @@ import { EditStudentComponent } from './edit-student.component/edit-student.comp
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
+  styles: [`
+  footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+  }
+
+  footer a {
+    color: #888;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+  `],
   providers: [MessageService],
 })
 export class StudentComponent implements OnInit {
@@ -81,8 +100,15 @@ export class StudentComponent implements OnInit {
     ref.onClose.subscribe((data) => {
       if (data) {
         this.loadData();
+        this.showMessage();
       }
     });
+  }
+  showMessage(): void {
+   this.message.add({
+        summary: 'Student Saved.',
+        severity: 'success',
+      });
   }
 
   onFilter(filter: any): void {
@@ -153,15 +179,10 @@ export class StudentComponent implements OnInit {
 
     this.http.persistStudents(toSave).subscribe((response) => {
       console.log('Response : ' + JSON.stringify(response));
-      this.message.add({
-        summary: response.message,
-        severity:
-          response.messageType === MessageResponseTypes.GENERIC_ERROR
-            ? 'error'
-            : 'success',
-      });
+      this.showMessage();
       this.isDeleted = false;
       this.hasNewItem = false;
     });
   }
+  
 }

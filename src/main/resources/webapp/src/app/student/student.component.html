@@ -46,16 +46,15 @@
   <p-table
     #dt
     [value]="students"
-    [rows]="10"
-    [paginator]="true"
     [globalFilterFields]="['rollNumber', 'firstName', 'lastName', 'email']"
-    [tableStyle]="{ 'min-width': '100%' }"
+    [tableStyle]="{ 'min-width': '40rem' }"
     [(selection)]="selectedStudents"
     [rowHover]="true"
     dataKey="rollNumber"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-    [showCurrentPageReport]="true"
     (onFilter)="onFilter($event)"
+    [scrollable]="true"
+    scrollHeight="40.88rem"
+    [scrollable]="true"
   >
     <ng-template pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
@@ -111,7 +110,7 @@
 
     <ng-template pTemplate="body" let-student let-index="rowIndex">
       <tr>
-        <td class="text-center">
+        <td class="text-center" style="width: 8.5%">
           <p-tableCheckbox [value]="student"></p-tableCheckbox>
         </td>
         <td>{{ student.rollNumber }}</td>
@@ -148,3 +147,10 @@
     </ng-template>
   </p-table>
 </div>
+<footer>
+  <p class="m-0 p-2">
+    &copy; 2023 Student Management System. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </p>
+</footer>

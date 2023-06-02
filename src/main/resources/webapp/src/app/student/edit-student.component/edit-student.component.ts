@@ -86,13 +86,6 @@ export class EditStudentComponent implements OnInit , OnDestroy {
    // tslint:disable-next-line:align
    this.subcription.push( this.studentService.putNewStudent(new Student(this.student)).subscribe((response) => {
       console.log('Student : ' + JSON.stringify(response));
-      this.message.add({
-        summary: 'Studnet Saved.',
-        severity:
-          MessageResponseTypes.GENERIC_ERROR
-            ? 'error'
-            : 'success',
-      });
       this.dynamicDialog.close(true);
     }));
   }

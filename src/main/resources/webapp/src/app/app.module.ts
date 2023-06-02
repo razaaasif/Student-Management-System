@@ -24,6 +24,8 @@ import { ToastModule } from 'primeng/toast';
 import { EditStudentComponent } from './student/edit-student.component/edit-student.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
+import { PaginatorModule } from 'primeng/paginator';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [AppComponent, StudentComponent, EditStudentComponent],
   imports: [
@@ -47,6 +49,8 @@ import { MessageService } from 'primeng/api';
     ToastModule,
     DynamicDialogModule,
     DropdownModule,
+    PaginatorModule,
+    ScrollingModule
   ],
   providers: [DialogService, MessageService],
   bootstrap: [AppComponent],
