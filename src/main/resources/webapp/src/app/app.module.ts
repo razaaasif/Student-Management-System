@@ -26,8 +26,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MessageService } from 'primeng/api';
 import { PaginatorModule } from 'primeng/paginator';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 @NgModule({
-  declarations: [AppComponent, StudentComponent, EditStudentComponent],
+  declarations: [AppComponent, StudentComponent, EditStudentComponent, SpinnerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
