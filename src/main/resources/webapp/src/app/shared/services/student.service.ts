@@ -8,28 +8,36 @@ import {
   StudentPersistModel,
 } from '../model/student.component.model';
 import { map } from 'rxjs/operators';
-import { Message } from 'primeng/api';
+import { MesssageResponse } from '../model/message/messsage-response.model';
+import { APP_URL } from '../../app-url';
+import { KeyValueModel } from '../model/name-value.model';
 @Injectable({
   providedIn: 'root',
 })
 export class StudentService {
+ 
   constructor(private http: HttpClient) {}
-  readonly url = environment.appUrl + '/students';
+
   getStudents(): Observable<Array<StudentModel>> {
-    // return of([
-    //   {
-    //     rollNumber: 'CS-17-01',
-    //     firstName: 'Aasif',
-    //     lastName: 'Raza',
-    //     email: 'aasifraza@gamil.com',
-    //   },
-    // ]);
     return this.http
-      .get<Array<Student>>(this.url)
+      .get<Array<Student>>(environment.appUrl + APP_URL.STUDENTS)
       .pipe(map((response: any) => response._embedded.students));
   }
 
-  persistStudents(toSave: StudentPersistModel): Observable<any> {
-    return this.http.put<any>(environment.appUrl + '/api/students', toSave);
+  getBranchs(): Observable<Array<KeyValueModel>> {
+    return this.http.get<Array<KeyValueModel>>(
+      environment.appUrl + APP_URL.BRANCHS
+    );
+  }
+
+  persistStudents(toSave: StudentPersistModel): Observable<MesssageResponse> {
+    return this.http.put<MesssageResponse>(
+      environment.appUrl + APP_URL.SAVE_STUDENTS,
+      toSave
+    );
+  }
+
+   putNewStudent(student: Student): Observable<StudentModel> {
+     return this.http.post<StudentModel>( environment.appUrl  + APP_URL.NEW_STUDENT, student);
   }
 }

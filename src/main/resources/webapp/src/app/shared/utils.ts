@@ -1,4 +1,5 @@
 import { Message } from 'primeng/api';
+import { Subscription } from 'rxjs';
 export function isNullOrEmptyString(str: string): boolean {
   return null == str || str.trim().length === 0 ? true : false;
 }
@@ -28,4 +29,19 @@ export function deepCopy<T, S>(obj: T): T {
     }
   }
   return newObj;
+}
+
+export function trimString(str: string): string {
+  if (str == null ) {
+    return null;
+  }
+  str = str.trim();
+  return str === '' ? null : str.trim();
+}
+
+
+export function unSubscribeAll(subs: Array<Subscription>): void {
+  if (subs) {
+    subs.forEach(s => s.unsubscribe());
+  }
 }

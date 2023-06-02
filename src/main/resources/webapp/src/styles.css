@@ -13,6 +13,9 @@
   flex-direction: column !important;
 }
 
+.flex-extend {
+  flex: 1 !important;
+}
 .space-between {
   justify-content: space-between !important;
 }
@@ -217,4 +220,33 @@
 
 .text-uppercase {
   text-transform: uppercase;
+}
+.m-auto {
+  margin: auto;
+}
+
+.flex-contents {
+  display: contents !important;
+}
+
+.grid {
+  display: grid !important;
+}
+
+.footer {
+  position: absolute !important;
+  bottom: 0 !important;
+}
+
+.validator-error {
+  border-color: red !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  cursor: not-allowed;
 }

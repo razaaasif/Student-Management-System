@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastModule } from 'primeng/toast';
 import { EditStudentComponent } from './student/edit-student.component/edit-student.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [AppComponent, StudentComponent, EditStudentComponent],
   imports: [
@@ -44,8 +46,9 @@ import { EditStudentComponent } from './student/edit-student.component/edit-stud
     MessageModule,
     ToastModule,
     DynamicDialogModule,
+    DropdownModule,
   ],
-  providers: [DialogService],
+  providers: [DialogService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

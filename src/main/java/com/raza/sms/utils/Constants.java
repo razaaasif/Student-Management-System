@@ -3,17 +3,25 @@ package com.raza.sms.utils;
 public class Constants {
 
 	public enum BRANCH {
-		COMPUTER_SCIECNE_ENGINEERING("CS"), MECHANICAL_ENGINEERING("ME"), CHEMICAL_ENGINEERING("CHE"),
-		ELECTRICAL_ENGINEERING("EE");
+		COMPUTER_SCIECNE_ENGINEERING("Computer Science Engineering", "CS"),
+		MECHANICAL_ENGINEERING("Mechanical Engineering", "ME"), CHEMICAL_ENGINEERING("Chemical Engineering", "CHE"),
+		ELECTRICAL_ENGINEERING("Electrical Engineering", "EE");
 
+		private String name;
 		private String value;
 
-		BRANCH(String string) {
-			this.value = string;
+		BRANCH(String name, String value) {
+			this.name = name;
+			this.value = value;
+
 		}
 
 		public String getValue() {
 			return this.value;
+		}
+
+		public String getName() {
+			return this.name;
 		}
 
 	}

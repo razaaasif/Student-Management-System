@@ -78,6 +78,11 @@ export class StudentComponent implements OnInit {
       EditStudentComponent,
       EditStudentComponent.DILAOG_CONFIG
     );
+    ref.onClose.subscribe((data) => {
+      if (data) {
+        this.loadData();
+      }
+    });
   }
 
   onFilter(filter: any): void {
