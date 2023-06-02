@@ -22,10 +22,10 @@ public class StudentIdGenerator implements IdentifierGenerator {
 			sb.append("-");
 			sb.append(LocalDate.now().getYear() % 100);
 			sb.append("-");
-//			Integer idSeq = (session.createQuery("From " + object.getClass().getSimpleName()).getResultList().size() + 1) ;
-			String query = "SELECT COUNT(*) FROM student where branch =:branch";
-			Integer idSeq = ((BigInteger) session.createNativeQuery(query).setParameter("branch", st.getBranch())
-					.getSingleResult()).intValue() + 1;
+			Integer idSeq = (session.createQuery("From " + object.getClass().getSimpleName()).getResultList().size() + 1) ;
+//			String query = "SELECT COUNT(*) FROM student where branch =:branch";
+//			Integer idSeq = ((BigInteger) session.createNativeQuery(query).setParameter("branch", st.getBranch())
+//					.getSingleResult()).intValue() + 1;
 
 			String id = (idSeq.intValue() < 10 ? "0" + idSeq.intValue() : idSeq.toString());
 			sb.append(id);
