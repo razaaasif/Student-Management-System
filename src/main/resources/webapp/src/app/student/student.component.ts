@@ -99,8 +99,8 @@ export class StudentComponent implements OnInit {
     );
     ref.onClose.subscribe((data) => {
       if (data) {
-        this.loadData();
         this.showMessage();
+        this.loadData();
       }
     });
   }

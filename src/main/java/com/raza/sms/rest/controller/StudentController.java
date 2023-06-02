@@ -3,8 +3,6 @@ package com.raza.sms.rest.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import javax.annotation.PostConstruct;
 
 import org.aspectj.bridge.Message;
@@ -27,7 +25,7 @@ import com.raza.sms.utils.Constants.MessageResponseType;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class StudentController {
 	private List<Student> students;
 	private StudentDAO studentDAO;

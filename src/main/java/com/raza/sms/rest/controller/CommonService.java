@@ -14,7 +14,7 @@ import com.raza.sms.utils.Constants.BRANCH;
 
 @RestController
 @RequestMapping("/api/commons")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CommonService {
 
 	@GetMapping("/branch")
