@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 import { MessageResponseTypes } from 'src/app/shared/model/message/messsage-response.model';
 import { Subscription } from 'rxjs';
 import { unSubscribeAll } from '../../shared/utils';
+import { SpinnerService } from 'src/app/shared/services/spinner.service';
 @Component({
   templateUrl: './edit-student.component.html',
   styles: [
@@ -48,22 +49,24 @@ export class EditStudentComponent implements OnInit , OnDestroy {
   public student: StudentModel = new StudentModel();
   branchs: Array<KeyValueModel> = new Array<KeyValueModel>();
   public readonly trimString = trimString;
-  isChanged: boolean = false;
-  inValid: boolean = true;
-  subcription: Array<Subscription> = new Array<Subscription>();;
+  isChanged = false;
+  inValid = true;
+  subcription: Array<Subscription> = new Array<Subscription>();
   constructor(
     private dynamicDialog: DynamicDialogRef,
     private studentService: StudentService,
-    private message: MessageService
+    private spinner: SpinnerService
   ) {}
   ngOnDestroy(): void {
     unSubscribeAll(this.subcription);
   }
 
   ngOnInit(): void {
-   this.subcription.push( this.studentService.getBranchs().subscribe((branch) => {
+    this.spinner.show();
+    this.subcription.push( this.studentService.getBranchs().subscribe((branch) => {
       console.log('branch : ' + JSON.stringify(branch));
       this.branchs = branch;
+      this.spinner.hide();
     }));
   }
   onClose(): void {
@@ -83,10 +86,12 @@ export class EditStudentComponent implements OnInit , OnDestroy {
     if (this.inValid) {
       return;
     }
+    this.spinner.show();
    // tslint:disable-next-line:align
    this.subcription.push( this.studentService.putNewStudent(new Student(this.student)).subscribe((response) => {
-      console.log('Student : ' + JSON.stringify(response));
-      this.dynamicDialog.close(true);
+     console.log('Student : ' + JSON.stringify(response));
+     this.spinner.hide();
+     this.dynamicDialog.close(true);
     }));
   }
 

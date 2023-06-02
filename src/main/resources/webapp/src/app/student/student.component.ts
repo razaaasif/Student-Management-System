@@ -19,29 +19,32 @@ import {
   DynamicDialogRef,
 } from 'primeng/dynamicdialog';
 import { EditStudentComponent } from './edit-student.component/edit-student.component';
+import { SpinnerService } from '../shared/services/spinner.service';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styles: [`
-  footer {
-    background-color: #f5f5f5;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #888;
-  }
+  styles: [
+    `
+      footer {
+        background-color: #f5f5f5;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+      }
 
-  footer a {
-    color: #888;
-    text-decoration: none;
-    margin: 0 5px;
-  }
+      footer a {
+        color: #888;
+        text-decoration: none;
+        margin: 0 5px;
+      }
 
-  footer a:hover {
-    text-decoration: underline;
-  }
-  `],
+      footer a:hover {
+        text-decoration: underline;
+      }
+    `,
+  ],
   providers: [MessageService],
 })
 export class StudentComponent implements OnInit {
@@ -59,13 +62,15 @@ export class StudentComponent implements OnInit {
   constructor(
     private http: StudentService,
     private message: MessageService,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private spinner: SpinnerService
   ) {}
 
   ngOnInit(): void {
     this.loadData();
   }
   loadData(): void {
+    this.spinner.show();
     this.deletedStudent = new Array<string>();
     this.selectedStudents = new Array<StudentModel>();
     this.isChanged = false;
@@ -83,8 +88,10 @@ export class StudentComponent implements OnInit {
         console.log(
           'originalStudents : ' + JSON.stringify(this.originalStudents)
         );
+        this.spinner.hide();
       },
       (erro) => {
+        this.spinner.hide();
         this.students = [];
         this.originalStudents = [];
         console.log('Error -> ' + JSON.stringify(erro));
@@ -105,10 +112,10 @@ export class StudentComponent implements OnInit {
     });
   }
   showMessage(): void {
-   this.message.add({
-        summary: 'Student Saved.',
-        severity: 'success',
-      });
+    this.message.add({
+      summary: 'Student Saved.',
+      severity: 'success',
+    });
   }
 
   onFilter(filter: any): void {
@@ -170,6 +177,7 @@ export class StudentComponent implements OnInit {
   }
 
   save(): void {
+    this.spinner.show();
     const toSave = new StudentPersistModel();
     toSave.saveData = this.students.filter(
       (student) => student.isNew || student.isUpdated
@@ -182,7 +190,7 @@ export class StudentComponent implements OnInit {
       this.showMessage();
       this.isDeleted = false;
       this.hasNewItem = false;
+      this.spinner.hide();
     });
   }
-  
 }

@@ -20,30 +20,16 @@ public class StudentManagementSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementSystemApplication.class, args);
 	}
-	
-	private List<Student> students;
-	private StudentDAO studentDAO ;
-	
+
 	public StudentManagementSystemApplication(StudentDAO studentDAO) {
-		this.studentDAO = studentDAO;
 	}
 
-
-	@PostConstruct()
-	@Transactional
-	public void loadStudent() {
-		this.students = new ArrayList<>();
-		students.add(new Student("Aasif", "Raza" , "aasifraza@gmail.com", BRANCH.COMPUTER_SCIECNE_ENGINEERING.getValue()));
-		students.add(new Student("Kashif", "Raza" , "aasifraza@gmail.com", BRANCH.ELECTRICAL_ENGINEERING.getValue()));
-		this.studentDAO.saveAll(this.students);
+	@Controller
+	public static class HomeController {
+		@GetMapping("/")
+		public String index() {
+			return "index.html";
+		}
 	}
-	
-	 @Controller
-	    public static class HomeController {
-	        @GetMapping("/")
-	        public String index() {
-	            return "index.html";
-	        }
-	    }
 
 }
