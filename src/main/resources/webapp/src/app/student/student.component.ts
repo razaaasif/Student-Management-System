@@ -191,6 +191,7 @@ export class StudentComponent implements OnInit {
       this.isDeleted = false;
       this.hasNewItem = false;
       this.spinner.hide();
+      this.loadData();
     });
   }
 }
