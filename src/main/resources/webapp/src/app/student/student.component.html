@@ -27,13 +27,13 @@
           (click)="cancel()"
           [disabled]="!isChanged"
           type="button"
-          class="btn btn-secondary btn-lg"
+          class="btn btn-light btn-lg border-dark"
         >
           <em class="fas fa-redo mr-2"></em>Cancel
         </button>
         <button
           type="button"
-          class="btn btn-primary btn-lg ml-2"
+          class="btn btn-outline-primary btn-lg ml-2"
           [disabled]="!isChanged"
           (click)="save()"
         >
@@ -55,6 +55,7 @@
     [scrollable]="true"
     scrollHeight="40.88rem"
     [scrollable]="true"
+    (onFilter)="onFilter($event)"
   >
     <ng-template pTemplate="caption">
       <div class="flex align-items-center justify-content-between">
@@ -124,7 +125,7 @@
             pRipple
             icon="pi pi-pencil"
             class="p-button-rounded p-button-success mr-2"
-            (click)="editProduct(product)"
+            (click)="addNewStudent(student)"
           ></button>
           <button
             pButton
@@ -137,11 +138,17 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
-      <tr *ngIf="students == null || students?.length < 1">
+      <tr
+        *ngIf="students == null || students?.length < 1 || filterText != null"
+      >
         <td [attr.colspan]="6" class="text-left ml-4">
           <span style="color: #b81717 !important">
-            No Students has been Configured.</span
-          >
+            {{
+              filterText == null
+                ? " No Student has been Configured."
+                : "No student has been found."
+            }}
+          </span>
         </td>
       </tr>
     </ng-template>

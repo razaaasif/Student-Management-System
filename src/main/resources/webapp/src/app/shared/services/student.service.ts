@@ -15,7 +15,6 @@ import { KeyValueModel } from '../model/name-value.model';
   providedIn: 'root',
 })
 export class StudentService {
- 
   constructor(private http: HttpClient) {}
 
   getStudents(): Observable<Array<StudentModel>> {
@@ -37,7 +36,13 @@ export class StudentService {
     );
   }
 
-   putNewStudent(student: Student): Observable<StudentModel> {
-     return this.http.post<StudentModel>( environment.appUrl  + APP_URL.NEW_STUDENT, student);
+  putNewStudent(student: Student): Observable<StudentModel> {
+    console.log('putNewStudent : ' + JSON.stringify(student));
+    return this.http.post<StudentModel>( environment.appUrl  + APP_URL.NEW_STUDENT, student);
+  }
+
+  updateStudent(student: Student): Observable<StudentModel> {
+    console.log('updateStudent : ' + JSON.stringify(student));
+    return this.http.put<StudentModel>( environment.appUrl  + APP_URL.NEW_STUDENT, student);
   }
 }

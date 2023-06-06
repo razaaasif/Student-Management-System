@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import {
   Student,
   StudentModel,
@@ -8,8 +8,6 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { StudentService } from '../../shared/services/student.service';
 import { KeyValueModel } from 'src/app/shared/model/name-value.model';
 import { trimString } from 'src/app/shared/utils';
-import { MessageService } from 'primeng/api';
-import { MessageResponseTypes } from 'src/app/shared/model/message/messsage-response.model';
 import { Subscription } from 'rxjs';
 import { unSubscribeAll } from '../../shared/utils';
 import { SpinnerService } from 'src/app/shared/services/spinner.service';
@@ -31,7 +29,7 @@ import { SpinnerService } from 'src/app/shared/services/spinner.service';
     `,
   ],
 })
-export class EditStudentComponent implements OnInit , OnDestroy {
+export class EditStudentComponent implements OnInit, OnDestroy {
   public static DILAOG_CONFIG: DynamicDialogConfig = {
     width: '30%',
     height: '65%',
@@ -46,28 +44,42 @@ export class EditStudentComponent implements OnInit , OnDestroy {
     },
     baseZIndex: 10000,
   };
-  public student: StudentModel = new StudentModel();
+  public student: StudentModel;
   branchs: Array<KeyValueModel> = new Array<KeyValueModel>();
   public readonly trimString = trimString;
   isChanged = false;
   inValid = true;
   subcription: Array<Subscription> = new Array<Subscription>();
+  pageName: string;
+  editMode: boolean = false ;
   constructor(
     private dynamicDialog: DynamicDialogRef,
     private studentService: StudentService,
-    private spinner: SpinnerService
+    private spinner: SpinnerService,
+    public config: DynamicDialogConfig
   ) {}
   ngOnDestroy(): void {
     unSubscribeAll(this.subcription);
   }
 
   ngOnInit(): void {
+    this.student = this.config.data.studentModel;
+    this.pageName = this.config.data.pageName;
+    this.editMode = this.config.data.editMode;
+    if (this.editMode) { 
+      EditStudentComponent.DILAOG_CONFIG.height = '70%';
+    }
     this.spinner.show();
-    this.subcription.push( this.studentService.getBranchs().subscribe((branch) => {
-      console.log('branch : ' + JSON.stringify(branch));
-      this.branchs = branch;
-      this.spinner.hide();
-    }));
+    console.log('data from main : ' + JSON.stringify(this.config.data));
+    this.subcription.push(
+      this.studentService.getBranchs().subscribe((branch) => {
+        console.log('branch : ' + JSON.stringify(branch));
+        this.branchs = branch;
+        setTimeout(() => {
+          this.spinner.hide();
+        }, 1000);
+      })
+    );
   }
   onClose(): void {
     this.dynamicDialog.close();
@@ -87,16 +99,30 @@ export class EditStudentComponent implements OnInit , OnDestroy {
       return;
     }
     this.spinner.show();
-   // tslint:disable-next-line:align
-   this.subcription.push( this.studentService.putNewStudent(new Student(this.student)).subscribe((response) => {
-     console.log('Student : ' + JSON.stringify(response));
-     this.spinner.hide();
-     this.dynamicDialog.close(true);
-    }));
+    if (!this.editMode) {
+      this.subcription.push(
+        this.studentService
+          .putNewStudent(new Student(this.student))
+          .subscribe((response) => {
+            console.log('Student : ' + JSON.stringify(response));
+            this.spinner.hide();
+            this.dynamicDialog.close(true);
+          })
+      );
+    } else {
+      this.subcription.push(
+        this.studentService
+          .putNewStudent(new Student(this.student))
+          .subscribe((response) => {
+            console.log('Student : ' + JSON.stringify(response));
+            this.spinner.hide();
+            this.dynamicDialog.close(true);
+          })
+      );
+    }
   }
 
   onCancel(): void {
     this.dynamicDialog.close(false);
   }
-
 }

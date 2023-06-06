@@ -1,26 +1,23 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { StudentService } from '../shared/services/student.service';
 import {
+  Student,
   StudentModel,
   StudentPersistModel,
 } from '../shared/model/student.component.model';
-import { MessageService, ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { SMSMessageService } from '../shared/services/component-services/sms-message-service';
 import {
   deepCopy,
   isNullOrEmptyArray,
   isNullOrEmptyString,
 } from '../shared/utils';
-import { MessageResponseTypes } from '../shared/model/message/messsage-response.model';
 import {
   DialogService,
-  DynamicDialogConfig,
   DynamicDialogRef,
 } from 'primeng/dynamicdialog';
 import { EditStudentComponent } from './edit-student.component/edit-student.component';
 import { SpinnerService } from '../shared/services/spinner.service';
-
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -99,18 +96,6 @@ export class StudentComponent implements OnInit {
     );
   }
 
-  addNewStudent(): void {
-    const ref: DynamicDialogRef = this.dialog.open(
-      EditStudentComponent,
-      EditStudentComponent.DILAOG_CONFIG
-    );
-    ref.onClose.subscribe((data) => {
-      if (data) {
-        this.showMessage();
-        this.loadData();
-      }
-    });
-  }
   showMessage(): void {
     this.message.add({
       summary: 'Student Saved.',
@@ -119,15 +104,16 @@ export class StudentComponent implements OnInit {
   }
 
   onFilter(filter: any): void {
+    console.log('onFilter : ' + JSON.stringify(filter.filteredValue));
     if (isNullOrEmptyString(this.filterText)) {
       return;
     }
     const lenth = isNullOrEmptyArray(this.students)
       ? '0'
       : this.students.length + '';
-    const filterlength = isNullOrEmptyArray(filter.filteValue)
+    const filterlength = isNullOrEmptyArray(filter.filteredValue)
       ? '0'
-      : filter.filteValue.length + '';
+      : filter.filteredValue.length + '';
     this.studentLength = filterlength + '/' + lenth;
     console.log('onFilter studentLength : ' + this.studentLength);
   }
@@ -192,6 +178,24 @@ export class StudentComponent implements OnInit {
       this.hasNewItem = false;
       this.spinner.hide();
       this.loadData();
+    });
+  }
+
+  addNewStudent(student: StudentModel = null): void {
+    console.log('Edit Student Start' + JSON.stringify(student));
+    const config = EditStudentComponent.DILAOG_CONFIG;
+    const studentModel = new StudentModel(student);
+    const editMode = student != null;
+    config.data = {editMode , pageName: editMode ? 'Add new Student' : 'Edit Student' , studentModel };
+    const ref: DynamicDialogRef = this.dialog.open(
+      EditStudentComponent,
+      EditStudentComponent.DILAOG_CONFIG
+    );
+    ref.onClose.subscribe((data) => {
+      if (data) {
+        this.showMessage();
+        this.loadData();
+      }
     });
   }
 }
