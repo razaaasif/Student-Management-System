@@ -50,4 +50,18 @@ public class Constants {
 		}
 
 	}
+
+	public enum ROLES {
+		STUDENT("STUDENT"), TEACHER("TEACHER"), ADMIN("ADMIN");
+
+		private String role;
+
+		ROLES(String role) {
+			this.role = role;
+		}
+
+		public String value() {
+			return this.role;
+		}
+	}
 }

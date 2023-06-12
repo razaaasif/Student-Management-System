@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.raza.sms.entity.Student;
 
-@CrossOrigin(origins = "*")
 public interface StudentDAO extends JpaRepository<Student, String> {
-
+	 void deleteAllByIdInBatch(Iterable<String> ids);
 }

@@ -25,7 +25,6 @@ import com.raza.sms.utils.Constants.MessageResponseType;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class StudentController {
 	private List<Student> students;
 	private StudentDAO studentDAO;
