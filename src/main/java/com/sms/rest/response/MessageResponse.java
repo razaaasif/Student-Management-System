@@ -1,6 +1,6 @@
-package com.raza.sms.rest.response;
+package com.sms.rest.response;
 
-import com.raza.sms.utils.Constants.MessageResponseType;
+import com.sms.utils.Constants.MessageResponseType;
 
 public class MessageResponse {
 	private MessageResponseType messageType;

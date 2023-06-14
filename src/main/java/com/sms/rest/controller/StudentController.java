@@ -1,4 +1,4 @@
-package com.raza.sms.rest.controller;
+package com.sms.rest.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.raza.sms.dao.interfaces.StudentDAO;
-import com.raza.sms.entity.Student;
-import com.raza.sms.rest.dto.SaveJson;
-import com.raza.sms.rest.response.MessageResponse;
-import com.raza.sms.utils.Constants.BRANCH;
-import com.raza.sms.utils.Constants.MessageResponseType;
+import com.sms.dao.interfaces.StudentDAO;
+import com.sms.entity.Student;
+import com.sms.rest.dto.SaveJson;
+import com.sms.rest.response.MessageResponse;
+import com.sms.utils.Constants.BRANCH;
+import com.sms.utils.Constants.MessageResponseType;
 
 @RestController
 @RequestMapping("/api")

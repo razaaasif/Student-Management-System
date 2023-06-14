@@ -1,4 +1,4 @@
-package com.raza.sms.config;
+package com.sms.config;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.raza.sms.dao.interfaces.UserRepository;
-import com.raza.sms.entity.Role;
-import com.raza.sms.entity.User;
+import com.sms.dao.interfaces.UserRepository;
+import com.sms.entity.Role;
+import com.sms.entity.User;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

@@ -1,9 +1,10 @@
-package com.raza.sms.dao.interfaces;
+package com.sms.dao.interfaces;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.raza.sms.entity.User;
+
+import com.sms.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	Optional<User> findByUsername(String userName);

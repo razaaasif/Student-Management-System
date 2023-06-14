@@ -1,4 +1,4 @@
-package com.raza.sms.rest.json;
+package com.sms.rest.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

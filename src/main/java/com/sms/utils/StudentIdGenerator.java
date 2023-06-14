@@ -1,4 +1,4 @@
-package com.raza.sms.utils;
+package com.sms.utils;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
 
-import com.raza.sms.entity.Student;
+import com.sms.entity.Student;
 
 public class StudentIdGenerator implements IdentifierGenerator {
 

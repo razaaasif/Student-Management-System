@@ -1,4 +1,4 @@
-package com.raza.sms.rest.controller;
+package com.sms.rest.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.raza.sms.rest.json.KeyValueJson;
-import com.raza.sms.utils.Constants.BRANCH;
+import com.sms.rest.json.KeyValueJson;
+import com.sms.utils.Constants.BRANCH;
 
 @RestController
 @RequestMapping("/api/commons")

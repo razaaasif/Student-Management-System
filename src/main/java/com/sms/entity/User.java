@@ -1,4 +1,4 @@
-package com.raza.sms.entity;
+package com.sms.entity;
 
 import java.util.List;
 import java.util.ArrayList;

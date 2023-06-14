@@ -1,4 +1,4 @@
-package com.raza.sms.rest.controller;
+package com.sms.rest.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.raza.sms.dao.interfaces.RoleRepository;
-import com.raza.sms.dao.interfaces.UserRepository;
-import com.raza.sms.entity.User;
-import com.raza.sms.entity.Role;
-import com.raza.sms.rest.dto.RegisterDto;
-import com.raza.sms.utils.Constants.ROLES;
+import com.sms.dao.interfaces.RoleRepository;
+import com.sms.dao.interfaces.UserRepository;
+import com.sms.entity.Role;
+import com.sms.entity.User;
+import com.sms.rest.dto.RegisterDto;
+import com.sms.utils.Constants.ROLES;
 
 @RestController
 @RequestMapping("/api/auth")

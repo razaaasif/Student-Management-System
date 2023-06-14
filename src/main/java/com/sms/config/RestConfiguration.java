@@ -1,4 +1,4 @@
-package com.raza.sms.config;
+package com.sms.config;
 
 import javax.persistence.EntityManager;
 

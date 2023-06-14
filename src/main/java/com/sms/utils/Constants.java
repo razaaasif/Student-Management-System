@@ -1,4 +1,4 @@
-package com.raza.sms.utils;
+package com.sms.utils;
 
 public class Constants {
 
