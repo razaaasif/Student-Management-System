@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 
 import org.aspectj.bridge.Message;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.raza.sms.dao.interfaces.StudentDAO;
 import com.raza.sms.entity.Student;
-import com.raza.sms.rest.dto.StudentSaveJson;
+import com.raza.sms.rest.dto.SaveJson;
 import com.raza.sms.rest.response.MessageResponse;
 import com.raza.sms.utils.Constants.BRANCH;
 import com.raza.sms.utils.Constants.MessageResponseType;
@@ -58,8 +57,8 @@ public class StudentController {
 	}
 
 	@PutMapping("/students")
-	public MessageResponse persist(@RequestBody StudentSaveJson toSave) {
-		StudentSaveJson save = new StudentSaveJson(toSave);
+	public MessageResponse persist(@RequestBody SaveJson<Student, String> toSave) {
+		SaveJson<Student, String> save = new SaveJson<Student, String>(toSave);
 
 		try {
 			if (null != save.getDeleteData() && save.getDeleteData().size() > 0) {
