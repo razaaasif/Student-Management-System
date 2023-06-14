@@ -11,13 +11,16 @@ public class StudentManagementSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementSystemApplication.class, args);
 	}
-	
 	@Controller
-	public static class HomeController {
-		@GetMapping("/")
-		public String index() {
-			return "index.html";
-		}
+	public class HomeController {
+	    @GetMapping("/")
+	    public String index() {
+	        return "index.html";
+	    }
+	    @GetMapping("/login")
+	    public String login() {
+	        return "redirect:/";
+	    }
 	}
 
 }

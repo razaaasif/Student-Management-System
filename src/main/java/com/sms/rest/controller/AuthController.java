@@ -1,8 +1,10 @@
 package com.sms.rest.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +24,15 @@ import com.sms.utils.Constants.ROLES;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-
+	private EntityManager et;
 	private UserRepository userRepository;
 	private RoleRepository roleRepository;
 
 	private PasswordEncoder passwordEncoder;
 
-	public AuthController(UserRepository userRepository, RoleRepository roleRepository,
+	public AuthController(EntityManager et, UserRepository userRepository, RoleRepository roleRepository,
 			PasswordEncoder passwordEncoder) {
+		this.et = et;
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.passwordEncoder = passwordEncoder;
@@ -37,9 +40,20 @@ public class AuthController {
 
 	@PostConstruct
 	public void createRoles() {
-		roleRepository.save(new Role(ROLES.STUDENT.value(), Long.valueOf(1)));
-		roleRepository.save(new Role(ROLES.TEACHER.value(), Long.valueOf(2)));
-		roleRepository.save(new Role(ROLES.ADMIN.value(), Long.valueOf(3)));
+		User user = new User("admin", passwordEncoder.encode("admin"));
+		saveUser(user, true);
+	}
+
+	private void saveUser(User user, boolean init) {
+		user.setRoles(this.getRoles(init));
+		userRepository.save(user);
+	}
+
+	private List<Role> getRoles(boolean init) {
+		return init ? Arrays.asList(new Role(ROLES.STUDENT.value(), Long.valueOf(1)),
+				new Role(ROLES.TEACHER.value(), Long.valueOf(2)), new Role(ROLES.ADMIN.value(), Long.valueOf(3)))
+: roleRepository.findAll();
+
 	}
 
 	@PostMapping("/register")
@@ -49,16 +63,8 @@ public class AuthController {
 		}
 
 		User user = new User(registerDto.getUsername(), passwordEncoder.encode(registerDto.getPassword()));
-		List<Role> roles = new ArrayList<>();
-		roles.addAll(roleRepository.findAll());
 
-		user.setRoles(roles);
-//		Optional<Role> roles = roleRepository.findByName(ROLES.TEACHER.value());
-//		if (roles.isPresent()) {
-//			user.setRoles(Collections.singletonList(roles.get()));
-//		}
-		userRepository.save(user);
-
+		this.saveUser(user, false);
 		return new ResponseEntity<>("User regirsterd Successfully", HttpStatus.OK);
 	}
 

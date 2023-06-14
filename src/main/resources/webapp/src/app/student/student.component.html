@@ -1,0 +1,156 @@
+<p-toast position="top-right"></p-toast>
+<div class="card">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <button class="btn btn-primary btn-lg" (click)="addNewStudent()">
+        <em class="fas fa-plus mr-2"></em>Add New Student
+      </button>
+      <button
+        class="btn btn-danger btn-lg ml-2"
+        (click)="deleteSelectedStudents()"
+        [disabled]="!selectedStudents || !selectedStudents.length"
+      >
+        <em class="fas fa-trash mr-2"></em>Delete Selected Students
+      </button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <div class="row space-between mr-2">
+        <button
+          (click)="cancel()"
+          [disabled]="!isChanged"
+          type="button"
+          class="btn btn btn-outline-secondary btn-lg border-dark"
+        >
+          <em class="fas fa-redo mr-2"></em>Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-lg ml-2"
+          [disabled]="!isChanged"
+          (click)="save()"
+        >
+          <em class="fas fa-save mr-2"></em>Save
+        </button>
+      </div>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="students"
+    [globalFilterFields]="['rollNumber', 'firstName', 'lastName', 'email']"
+    [tableStyle]="{ 'min-width': '40rem' }"
+    [(selection)]="selectedStudents"
+    [rowHover]="true"
+    dataKey="rollNumber"
+    (onFilter)="onFilter($event)"
+    [scrollable]="true"
+    scrollHeight="40.88rem"
+    [scrollable]="true"
+    (onFilter)="onFilter($event)"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Students&nbsp;({{ studentLength }})</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            [(ngModel)]="filterText"
+            type="text"
+            (input)="
+              dt.filterGlobal($event.target.value, 'contains');
+              onChange($event.target.value)
+            "
+            placeholder="Search..."
+            class="p-inputtext p-component p-element"
+            (ngModelChange)="onChange()"
+          />
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr class="flex-column">
+        <th style="width: 8%" class="text-center">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th style="width: 17%" pSortableColumn="rollNumber">
+          <div class="flex-row space-between">
+            Roll Number
+            <p-sortIcon field="rollNumber"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="firstName">
+          <div class="flex-row space-between">
+            First Name <p-sortIcon field="firstName"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="lastName">
+          <div class="flex-row space-between">
+            Last Name <p-sortIcon field="lastName"></p-sortIcon>
+          </div>
+        </th>
+        <th style="width: 17%" pSortableColumn="email">
+          <div class="flex-row space-between">
+            Email <p-sortIcon field="email"></p-sortIcon>
+          </div>
+        </th>
+
+        <th style="width: 17%" class="text-center">Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-student let-index="rowIndex">
+      <tr>
+        <td class="text-center" style="width: 8.5%">
+          <p-tableCheckbox [value]="student"></p-tableCheckbox>
+        </td>
+        <td>{{ student.rollNumber }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.email }}</td>
+
+        <td class="text-center">
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="addNewStudent(student)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="delete(student.rollNumber, index)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr
+        *ngIf="students == null || students?.length < 1 || filterText != null"
+      >
+        <td [attr.colspan]="6" class="text-left ml-4">
+          <span style="color: #b81717 !important">
+            {{
+              filterText == null
+                ? " No Student has been Configured."
+                : "No student has been found."
+            }}
+          </span>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<footer class="footer">
+  <p class="m-0 p-2">
+    &copy; 2023 Student Management System. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+  </p>
+</footer>
