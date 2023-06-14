@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table
 public class Student {
 	@Id
-	@GenericGenerator(name = "student_id_generator", strategy = "com.raza.sms.utils.StudentIdGenerator")
+	@GenericGenerator(name = "student_id_generator", strategy = "com.sms.utils.StudentIdGenerator")
 	@GeneratedValue(generator = "student_id_generator")
 	private String rollNumber;
 	private String firstName;
