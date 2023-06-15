@@ -1,3 +1,4 @@
+<p-toast position="top-right"></p-toast>
 <div
   class="vh-100 d-flex justify-content-center align-items-center"
   style="min-width: 100rem"
@@ -12,13 +13,24 @@
               <h2 class="fw-bold mb-4 mt-1 text-uppercase">
                 Student Management System
               </h2>
+              <div
+                *ngIf="createSuccess; else elseLog"
+                class="p-3 mb-2 bg-success text-white"
+              >
+                User created succussfully please login .
+              </div>
+
+              <ng-template #elseLog>
+                <p class="text-secondary">{{ label }}</p>
+              </ng-template>
+
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input
                   type="username"
                   class="form-control"
-                  id="username"
-                  placeholder="Please enter your username"
+                  id="admin"
+                  [placeholder]="usernameabel"
                   [(ngModel)]="username"
                   [required]="true"
                 />
@@ -28,30 +40,42 @@
                 <input
                   type="password"
                   class="form-control"
-                  id="password"
-                  placeholder="*******"
+                  id="admin"
+                  [placeholder]="
+                    signUp ? 'Enter atleast 5 characters password' : '*******'
+                  "
                   [(ngModel)]="password"
                   [required]="true"
                 />
               </div>
-              <p class="small">
+              <!-- <p class="small">
                 <a class="text-primary" href="#">Forgot password?</a>
-              </p>
+              </p> -->
               <div class="d-grid">
                 <button
                   class="btn btn-primary btn-lg btn-block"
-                  (click)="login()"
+                  (click)="selectMethod()"
                   [disabled]="isValid()"
                 >
-                  Login
+                  {{ loginLable }}
                 </button>
               </div>
             </div>
             <div>
-              <p class="mb-0 text-center">
-                Don't have an account?
-                <a href="#" class="text-primary fw-bold">Sign Up</a>
+              <p *ngIf="!signUp; else elseblock" class="mb-0 text-center">
+                Don't have an account?&nbsp;
+                <button href="#" class="btn btn-info" (click)="createUser()">
+                  Sign Up
+                </button>
               </p>
+              <ng-template #elseblock>
+                <p class="mb-0 text-center">
+                  Already have an account? &nbsp;
+                  <button href="#" class="btn btn-info" (click)="signIn()">
+                    Sign In
+                  </button>
+                </p>
+              </ng-template>
             </div>
           </div>
         </div>

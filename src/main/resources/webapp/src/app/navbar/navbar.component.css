@@ -1,0 +1,28 @@
+ul li {
+  padding: 1rem !important;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  padding: 16px;
+  font-size: 1.5rem;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.header {
+  padding: 1rem;
+  color: white;
+}
+a {
+  color: rgb(255, 255, 255);
+}
+ul,
+ol {
+  list-style-type: none;
+}

@@ -52,6 +52,7 @@ export class EditStudentComponent implements OnInit, OnDestroy {
   subcription: Array<Subscription> = new Array<Subscription>();
   pageName: string;
   editMode: boolean = false;
+  isLoading: boolean;
   constructor(
     private dynamicDialog: DynamicDialogRef,
     private studentService: StudentService,
@@ -63,6 +64,7 @@ export class EditStudentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.student = this.config.data.studentModel;
     this.pageName = this.config.data.pageName;
     this.editMode = this.config.data.editMode;
@@ -71,7 +73,6 @@ export class EditStudentComponent implements OnInit, OnDestroy {
         EditStudentComponent.DILAOG_CONFIG.height = '70%';
       });
     }
-    this.spinner.show();
     console.log('data from main : ' + JSON.stringify(this.config.data));
     this.subcription.push(
       this.studentService.getBranchs().subscribe((branch) => {
@@ -79,7 +80,7 @@ export class EditStudentComponent implements OnInit, OnDestroy {
         this.branchs = branch;
         setTimeout(() => {
           this.spinner.hide();
-        }, 1000);
+        }, 100);
       })
     );
   }

@@ -3,7 +3,7 @@ import { MessageService } from 'primeng/api';
 import {
   MessageResponseTypes,
   MesssageResponse,
-} from '../../model/message/messsage-response.model';
+} from '../../model/messsage-response.model';
 
 @Injectable({ providedIn: 'root' })
 export class SMSMessageService {

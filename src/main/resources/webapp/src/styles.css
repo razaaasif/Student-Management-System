@@ -35,7 +35,7 @@
 }
 
 .m-4 {
-  margin: 0.1rem !important;
+  margin: 1rem !important;
 }
 
 .p-1 {
@@ -51,7 +51,7 @@
 }
 
 .p-4 {
-  padding: 0.1rem;
+  padding: 1rem;
 }
 .m-auto {
   margin: auto;
@@ -70,7 +70,7 @@
 }
 
 .ml-4 {
-  margin-left: 0.1rem;
+  margin-left: 1rem;
 }
 
 .mr-1 {
@@ -86,7 +86,7 @@
 }
 
 .mt-4 {
-  margin-top: 0.1rem;
+  margin-top: 1rem;
 }
 
 .mt-1 {

@@ -15,6 +15,8 @@ import {
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EditStudentComponent } from './edit-student.component/edit-student.component';
 import { SpinnerService } from '../shared/services/spinner.service';
+import { UserService } from '../shared/model/user.model';
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -57,11 +59,18 @@ export class StudentComponent implements OnInit {
     private http: StudentService,
     private message: MessageService,
     private dialog: DialogService,
-    private spinner: SpinnerService
+    private spinner: SpinnerService,
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadData();
+    if (this.userService.user !== null) {
+      this.userService.isLoggedIn = true;
+      this.loadData();
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
   loadData(): void {
     this.spinner.show();

@@ -25,7 +25,11 @@ export class AuthenticationInterceptor implements HttpInterceptor {
         ', ' +
         this.useService.getPassword()
     );
-    if (this.useService.getUsername() && this.useService.getPassword()) {
+    if (
+      !this.useService.isSignupRequest &&
+      this.useService.getUsername() &&
+      this.useService.getPassword()
+    ) {
       const newReq = req.clone({
         setHeaders: {
           Authorization:
@@ -39,6 +43,7 @@ export class AuthenticationInterceptor implements HttpInterceptor {
       });
       return next.handle(newReq);
     }
+
     this.router.navigate(['/login']);
     return next.handle(req);
   }

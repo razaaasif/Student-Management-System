@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {
   Student,
@@ -8,7 +8,7 @@ import {
   StudentPersistModel,
 } from '../model/student.component.model';
 import { map } from 'rxjs/operators';
-import { MesssageResponse } from '../model/message/messsage-response.model';
+import { MesssageResponse } from '../model/messsage-response.model';
 import { APP_URL } from '../../app-url';
 import { KeyValueModel } from '../model/name-value.model';
 @Injectable({

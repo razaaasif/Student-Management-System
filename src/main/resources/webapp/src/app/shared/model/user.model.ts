@@ -1,25 +1,35 @@
 import { Injectable } from '@angular/core';
 import { User } from './user.mode';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private user: User;
-  public isUserLoggedIn: boolean = false;
+  public user: User;
+  public isUserLoggedIn: Subject<boolean> = new Subject<boolean>();
+  public isLoggedIn: boolean = false;
+  isSignupRequest: boolean;
   constructor() {
-    this.user = new User();
-    const temp: User = JSON.parse(localStorage.getItem('userDetail'));
+    this.isUserLoggedIn.subscribe((loggedin) => (this.isLoggedIn = loggedin));
+    const temp: User = JSON.parse(sessionStorage.getItem('userDetail'));
     console.log('UserService constructor : ' + JSON.stringify(temp));
-    if (temp != null) {
-      this.user.username = temp.username;
-      this.user.password = temp.password;
+    this.user = new User();
+    if (temp !== null) {
+      this.user = new User();
+
+      this.user.username = temp?.username;
+      this.user.password = temp?.password;
     }
   }
 
   setUserPassword(username: string, password: string): void {
+    console.log(
+      'UserService setUserPassword user : ' + password + ' pass : ' + password
+    );
+
     const tempUser = { username: username, password: password };
-    localStorage.setItem('userDetail', JSON.stringify(tempUser));
+    sessionStorage.setItem('userDetail', JSON.stringify(tempUser));
 
     this.user.username = username;
     this.user.password = password;

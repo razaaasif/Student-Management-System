@@ -1,5 +1,4 @@
 export class User {
-  username: string;
-  password: string;
-  isEnabled: boolean = true;
+  username: string = null;
+  password: string = null;
 }

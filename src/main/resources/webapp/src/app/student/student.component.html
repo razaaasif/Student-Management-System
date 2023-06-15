@@ -6,7 +6,7 @@
         <em class="fas fa-plus mr-2"></em>Add New Student
       </button>
       <button
-        class="btn btn-danger btn-lg ml-2"
+        class="btn btn-secondary btn-lg ml-2"
         (click)="deleteSelectedStudents()"
         [disabled]="!selectedStudents || !selectedStudents.length"
       >
@@ -46,7 +46,7 @@
     dataKey="rollNumber"
     (onFilter)="onFilter($event)"
     [scrollable]="true"
-    scrollHeight="40.88rem"
+    scrollHeight="38rem"
     [scrollable]="true"
     (onFilter)="onFilter($event)"
   >
@@ -66,6 +66,12 @@
             placeholder="Search..."
             class="p-inputtext p-component p-element"
             (ngModelChange)="onChange()"
+            style="
+              width: 30rem;
+              padding: px;
+              padding: 8px 8px 8px 30px !important;
+              border-radius: 15px;
+            "
           />
         </span>
       </div>
