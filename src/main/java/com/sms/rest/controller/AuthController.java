@@ -24,15 +24,15 @@ import com.sms.utils.Constants.ROLES;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-	private EntityManager et;
+
 	private UserRepository userRepository;
 	private RoleRepository roleRepository;
 
 	private PasswordEncoder passwordEncoder;
 
-	public AuthController(EntityManager et, UserRepository userRepository, RoleRepository roleRepository,
+	public AuthController(UserRepository userRepository, RoleRepository roleRepository,
 			PasswordEncoder passwordEncoder) {
-		this.et = et;
+
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		this.passwordEncoder = passwordEncoder;
@@ -40,8 +40,8 @@ public class AuthController {
 
 	@PostConstruct
 	public void createRoles() {
-		User user = new User("admin", passwordEncoder.encode("admin"));
-		saveUser(user, true);
+//		User user = new User("admin", passwordEncoder.encode("admin"));
+//		saveUser(user, true);
 	}
 
 	private void saveUser(User user, boolean init) {
@@ -52,7 +52,7 @@ public class AuthController {
 	private List<Role> getRoles(boolean init) {
 		return init ? Arrays.asList(new Role(ROLES.STUDENT.value(), Long.valueOf(1)),
 				new Role(ROLES.TEACHER.value(), Long.valueOf(2)), new Role(ROLES.ADMIN.value(), Long.valueOf(3)))
-: roleRepository.findAll();
+				: roleRepository.findAll();
 
 	}
 
