@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LoginService } from '../shared/services/login.service';
 import { SpinnerService } from '../shared/services/spinner.service';
 import { Router } from '@angular/router';
-import { AuthenticationInterceptor } from '../shared/services/authentication.interceptor';
 import { UserService } from '../shared/model/user.model';
-import { unSubscribeAll } from '../shared/utils';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +37,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         console.log('data login ' + JSON.stringify(data));
         console.log(this.username + ':' + this.password);
         this.spinner.hide();
+        this.userService.isUserLoggedIn = true;
         this.router.navigate(['students']);
       },
       (erro) => {

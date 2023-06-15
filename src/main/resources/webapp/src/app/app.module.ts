@@ -30,10 +30,12 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationInterceptor } from './shared/services/authentication.interceptor';
+import { NewLoginComponent } from './login/new-login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'newlogin', component: NewLoginComponent },
   { path: 'students', component: StudentComponent },
 ];
 

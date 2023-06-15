@@ -12,10 +12,7 @@ import {
   isNullOrEmptyArray,
   isNullOrEmptyString,
 } from '../shared/utils';
-import {
-  DialogService,
-  DynamicDialogRef,
-} from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { EditStudentComponent } from './edit-student.component/edit-student.component';
 import { SpinnerService } from '../shared/services/spinner.service';
 @Component({
@@ -76,12 +73,16 @@ export class StudentComponent implements OnInit {
     this.http.getStudents().subscribe(
       (data) => {
         console.log('Students data RESPONSE ->' + JSON.stringify(data));
-        this.students = data;
+        this.students = data.map((student) => {
+          const st = new StudentModel(student);
+          student.rollNumber = student.rollNumber;
+          return st;
+        });
         this.studentLength = isNullOrEmptyArray(this.students)
           ? '0'
           : this.students.length + '';
         this.originalStudents = deepCopy(this.students);
-        console.log('students : ' + JSON.stringify(this.students));
+        console.log('students after map : ' + JSON.stringify(this.students));
         console.log(
           'originalStudents : ' + JSON.stringify(this.originalStudents)
         );
@@ -98,7 +99,7 @@ export class StudentComponent implements OnInit {
 
   showMessage(): void {
     this.message.add({
-      summary: 'Student Saved.',
+      summary: 'Opeartion performed successfully.',
       severity: 'success',
     });
   }
@@ -186,7 +187,11 @@ export class StudentComponent implements OnInit {
     const config = EditStudentComponent.DILAOG_CONFIG;
     const studentModel = new StudentModel(student);
     const editMode = student != null;
-    config.data = {editMode , pageName: editMode ? 'Add new Student' : 'Edit Student' , studentModel };
+    config.data = {
+      editMode,
+      pageName: editMode ? 'Add new Student' : 'Edit Student',
+      studentModel,
+    };
     const ref: DynamicDialogRef = this.dialog.open(
       EditStudentComponent,
       EditStudentComponent.DILAOG_CONFIG

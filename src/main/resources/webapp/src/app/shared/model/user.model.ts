@@ -6,7 +6,7 @@ import { User } from './user.mode';
 })
 export class UserService {
   private user: User;
-
+  public isUserLoggedIn: boolean = false;
   constructor() {
     this.user = new User();
     const temp: User = JSON.parse(localStorage.getItem('userDetail'));
