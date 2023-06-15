@@ -37,6 +37,6 @@ export class SpinnerService {
         this.spinnerRef.destroy();
         this.spinnerRef = null;
       }
-    }, 500);
+    }, 1000);
   }
 }
