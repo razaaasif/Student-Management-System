@@ -18,7 +18,6 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.jayway.jsonpath.Configuration.Defaults;
 import com.sms.utils.Constants.ROLES;
 import org.springframework.web.cors.CorsConfiguration;
 
