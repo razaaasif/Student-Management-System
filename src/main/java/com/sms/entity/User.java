@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "users")
@@ -19,7 +20,9 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Pattern(regexp="^[A-Za-z]*$",message = "Only alphabate characters are allowed")
 	private String username;
+	@Pattern(regexp = "^[A-Za-z0-9]*$", message = "Only alphanumeric characters are allowed")
 	private String password;
 	private int enabled;
 

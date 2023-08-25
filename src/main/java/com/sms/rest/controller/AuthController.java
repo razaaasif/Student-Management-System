@@ -67,4 +67,12 @@ public class AuthController {
 		return ResponseEntity.ok(user);
 	}
 
+	@PostMapping("/isvalid")
+	public ResponseEntity<Boolean> isValid(@RequestBody User user) {
+	    if (userRepository.existsByUsername(user.getUsername())) {
+	        return ResponseEntity.ok(true);
+	    } else {
+	        return ResponseEntity.ok(false);
+	    }
+	}
 }

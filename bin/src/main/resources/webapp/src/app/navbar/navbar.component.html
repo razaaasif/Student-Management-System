@@ -1,0 +1,23 @@
+<div *ngIf="isLogin" class="flex-row space-between p-2 bg-dark">
+  <div class="flex mr-auto">
+    <a class="header text-center" routerLink="/">Student Management System</a>
+  </div>
+  <div class="flex-row">
+    <ul class="flex-row">
+      <li>
+        <a routerLink="/students">Add Student</a>
+      </li>
+
+      <li>
+        <a routerLink="/students">Student Details</a>
+      </li>
+      <li>
+        <a routerLink="/students">About</a>
+      </li>
+
+      <li>
+        <a href="#" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</div>

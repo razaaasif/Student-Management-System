@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,9 +16,17 @@ public class Student {
 	@GenericGenerator(name = "student_id_generator", strategy = "com.sms.utils.StudentIdGenerator")
 	@GeneratedValue(generator = "student_id_generator")
 	private String rollNumber;
+
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabate charcters are allowed")
 	private String firstName;
+
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabate charcters are allowed")
 	private String lastName;
+
+	@Email(message = "Invalid email format")
 	private String email;
+
+	@Pattern(regexp = "^[A-Za-z]*$", message = "Only alphabate charcters are allowed")
 	private String branch;
 
 	public Student() {

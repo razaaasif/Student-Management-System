@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "roles")
@@ -12,6 +14,9 @@ public class Role {
 	@Id
 	private Long id;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	  
+	@Pattern(regexp="^[A-Za-z]*$",message = "Only alphabate charcters are allowed")
+	@NotNull
 	private String name;
 
 	public Role(String string, Long long1) {
