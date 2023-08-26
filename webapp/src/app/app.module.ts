@@ -33,6 +33,7 @@ import { AuthenticationInterceptor } from './shared/services/authentication.inte
 import { NewLoginComponent } from './login/new-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { UrlInterceptor } from './shared/services/url.interceptor';
 
 const routes: Routes = [
   { path: '*',  component:AppComponent },
@@ -80,7 +81,13 @@ const routes: Routes = [
     MessageService,
     {
       provide: HTTP_INTERCEPTORS,
+      useClass: UrlInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,
+
       multi: true,
     },
     { provide: LocationStrategy, useClass: HashLocationStrategy },

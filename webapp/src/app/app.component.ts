@@ -9,7 +9,6 @@ import { UserService } from './shared/model/user.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit{
-  title = 'webapp';
   constructor(private loginService: LoginService , private router: Router, private userService:UserService) { }
   ngOnInit(): void {
     this.loginService.isValid().subscribe((data) => {

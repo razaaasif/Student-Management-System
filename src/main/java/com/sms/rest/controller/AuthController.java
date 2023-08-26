@@ -55,24 +55,22 @@ public class AuthController {
 
 	@PostMapping("/register")
 	public ResponseEntity<User> register(@RequestBody RegisterDto registerDto) {
+		System.out.println(registerDto);
 		if (userRepository.existsByUsername(registerDto.getUsername())) {
-			new ResponseEntity<>("Username is taken ", HttpStatus.BAD_REQUEST);
-			return ResponseEntity.ok(null);
+			return ResponseEntity.badRequest().body(null); // Return a bad request response
 		}
-
 		User user = new User(registerDto.getUsername(), passwordEncoder.encode(registerDto.getPassword()));
-
 		this.saveUser(user, false);
-		new ResponseEntity<>("User regirsterd Successfully", HttpStatus.OK);
+		// Return a success response
 		return ResponseEntity.ok(user);
 	}
 
 	@PostMapping("/isvalid")
 	public ResponseEntity<Boolean> isValid(@RequestBody User user) {
-	    if (userRepository.existsByUsername(user.getUsername())) {
-	        return ResponseEntity.ok(true);
-	    } else {
-	        return ResponseEntity.ok(false);
-	    }
+		if (userRepository.existsByUsername(user.getUsername())) {
+			return ResponseEntity.ok(true);
+		} else {
+			return ResponseEntity.ok(false);
+		}
 	}
 }

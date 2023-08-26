@@ -33,11 +33,13 @@ public class NewSecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(withDefaults -> withDefaults.disable())
 				.cors(cors -> cors.configurationSource(request -> this.getCorsConfiguration(request)))
-				.authorizeHttpRequests(requests -> requests.antMatchers("/api/auth/**").permitAll()
-						.antMatchers(HttpMethod.GET, "/students").hasRole(ROLES.STUDENT.value())
-						.antMatchers(HttpMethod.GET, "/students/**").hasRole(ROLES.STUDENT.value())
-						.antMatchers(HttpMethod.POST, "/students").hasRole(ROLES.TEACHER.value())
-						.antMatchers("/admin/**").hasRole(ROLES.ADMIN.value()))
+				.authorizeHttpRequests(
+						requests -> requests.antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+								.antMatchers(HttpMethod.POST, "/api/auth/register").permitAll()
+								.antMatchers(HttpMethod.GET, "/students").hasRole(ROLES.STUDENT.value())
+								.antMatchers(HttpMethod.GET, "/students/**").hasRole(ROLES.STUDENT.value())
+								.antMatchers(HttpMethod.POST, "/students").hasRole(ROLES.TEACHER.value())
+								.antMatchers("/admin/**").hasRole(ROLES.ADMIN.value()))
 				.httpBasic(withDefaults())
 				.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/", false).failureForwardUrl("/"))
 
@@ -47,8 +49,8 @@ public class NewSecurityConfig {
 		return http.build();
 	}
 
-    @Bean
-    AuthenticationEntryPoint authenticationEntryPoint() {
+	@Bean
+	AuthenticationEntryPoint authenticationEntryPoint() {
 		return new LoginUrlAuthenticationEntryPoint("/");
 	}
 
