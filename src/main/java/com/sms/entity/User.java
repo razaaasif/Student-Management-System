@@ -22,7 +22,7 @@ public class User {
 	private Long id;
 	@Pattern(regexp="^[A-Za-z]*$",message = "Only alphabate characters are allowed")
 	private String username;
-    @Pattern(regexp = "^[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};:\\\\|,.<>\\/?]*$", message = "Password can contain alphanumeric characters and special characters")
+    @Pattern(regexp = "^[a-zA-Z0-9!@#$%&*]*$", message = "Password can contain alphanumeric characters and special characters")
 	private String password;
 	private int enabled;
 
