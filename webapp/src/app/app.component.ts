@@ -16,7 +16,10 @@ export class AppComponent implements OnInit{
       if (data) {
         this.userService.isUserLoggedIn.next(data);
         this.router.navigateByUrl('/students');
-       }
+      } else {
+        this.userService.removeUser();
+        this.router.navigateByUrl('/login');
+      }
 
     })
   }

@@ -35,8 +35,13 @@ export class ErrorHandlingService {
   }
 
   private showMessages(errorMessages: string[]) {
-    errorMessages.forEach((message) => {
-      this.messageService.add({ severity: 'error', detail: message + '.' });
-    });
+    if (errorMessages && errorMessages.length > 0) {
+      errorMessages.forEach((message) => {
+        this.messageService.add({ severity: 'error', detail: message + '.' });
+      });
+    }
+    else {
+      this.messageService.add({ severity: 'error', detail: 'Something went wrong.' });
+    }
   }
 }

@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
+import org.springframework.lang.NonNull;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -22,7 +24,7 @@ public class User {
 	private Long id;
 	@Pattern(regexp="^[A-Za-z]*$",message = "Only alphabate characters are allowed")
 	private String username;
-    @Pattern(regexp = "^[a-zA-Z0-9!@#$%&*]*$", message = "Password can contain alphanumeric characters and special characters")
+	@NonNull
 	private String password;
 	private int enabled;
 

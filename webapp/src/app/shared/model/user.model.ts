@@ -6,6 +6,11 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
+  removeUser() {
+    this.isUserLoggedIn.next(false);
+    sessionStorage.removeItem('userDetail');
+    this.user = new User();
+  }
   public user: User;
   public isUserLoggedIn: Subject<boolean> = new Subject<boolean>();
   public isLoggedIn: boolean = false;

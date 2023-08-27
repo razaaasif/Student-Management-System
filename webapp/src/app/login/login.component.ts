@@ -60,6 +60,13 @@ export class LoginComponent implements OnInit, OnDestroy {
       severity: 'success',
     });
   }
+
+  showLoginError(): void {
+    this.message.add({
+      summary: 'Wrong username or password',
+      severity: 'error',
+    });
+  }
   public signIn(): void {
     this.reset();
 
@@ -118,6 +125,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       (erro) => {
         console.log('Error -> ' + JSON.stringify(erro));
         if (erro['status'] === 404) {
+          this.showLoginError();
           this.userService.isUserLoggedIn.next(false);
           this.router.navigate(['/login']);
         }
