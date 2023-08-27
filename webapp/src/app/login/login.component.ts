@@ -6,6 +6,7 @@ import { UserService } from '../shared/model/user.model';
 import { User } from '../shared/model/user.mode';
 import { Subscription } from 'rxjs';
 import { MessageService } from 'primeng/api';
+import { safeTrim, trimString } from '../shared/utils';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,14 @@ import { MessageService } from 'primeng/api';
 export class LoginComponent implements OnInit, OnDestroy {
   public username: string = null;
   public password: string = null;
+  readonly safeTrim = safeTrim;
   public label: string = 'Please enter your username and password';
   usernameabel: string = 'Enter your username';
   public loginLable = 'Login';
   public signUp: boolean = false;
   private sub: Subscription;
   createSuccess: boolean;
+  isChanged: boolean = false;
   constructor(
     private http: LoginService,
     private spinner: SpinnerService,
@@ -106,6 +109,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   user(): User {
     return { username: this.username, password: this.password };
+  }
+
+  onChange() {
+    console.log('onChange()');
+    this.isChanged = true;
   }
 
   login(): void {

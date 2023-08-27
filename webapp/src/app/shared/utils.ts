@@ -16,6 +16,14 @@ export function trimString(str: string): string {
   return str === '' ? null : str.trim();
 }
 
+export function safeTrim(str: string): string {
+  if (str == null) {
+    return '';
+  }
+  str = str.trim();
+  return str.length === 0 ? '' : str;
+}
+
 export function unSubscribeAll(subs: Array<Subscription>): void {
   if (subs) {
     subs.forEach((s) => s.unsubscribe());
