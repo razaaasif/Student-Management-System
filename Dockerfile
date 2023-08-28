@@ -1,12 +1,7 @@
-# Stage 1: Build the application
-FROM maven:3.8.4 as build
-WORKDIR /app
+FROM maven:3.6.3-jdk-8 AS build
 COPY . .
-RUN mvn package -DskipTests
-
-# Stage 2: Create the final image
+RUN maven clean package -DskipTests
 FROM openjdk:8-jre-slim
-WORKDIR /app
-COPY --from=build /app/target/student-management-system-1.0.jar demo.jar
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+COPY --from=build /target/student-management-system-1.0.jar demo.jar
 EXPOSE 8080
+ENTRYPOINT [ "java","-jar","demo.jar" ]
