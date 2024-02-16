@@ -1,4 +1,5 @@
-use database railway;
+create database sms;
+use database sms;
  CREATE TABLE `users` (
        `id` BIGINT NOT NULL AUTO_INCREMENT,
        `enabled` INT NOT NULL,
