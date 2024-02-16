@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workspace\Udemy Learning\PROJECTS\angular 11.0.0\Student-Management-System\webapp\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! /home/hamid/workspace/Student-Management-System/webapp/src/main.ts */"zUnb");
 
 
 /***/ }),
@@ -550,33 +550,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/button */ "jIHw");
 /* harmony import */ var primeng_checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/checkbox */ "Ji6n");
 /* harmony import */ var primeng_panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/panel */ "7CaW");
-/* harmony import */ var primeng_radioButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/radioButton */ "LuMj");
-/* harmony import */ var _student_student_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./student/student.component */ "hLTS");
-/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/table */ "rEr+");
-/* harmony import */ var primeng_toolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/toolbar */ "5EWq");
-/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! primeng/fileupload */ "NCSE");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "1kSV");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var primeng_messages__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/messages */ "dts7");
-/* harmony import */ var primeng_message__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/message */ "FMpt");
-/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/dynamicdialog */ "J7/z");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/toast */ "Gxio");
-/* harmony import */ var _student_edit_student_component_edit_student_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./student/edit-student.component/edit-student.component */ "7qAy");
-/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/dropdown */ "arFO");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! primeng/api */ "7zfz");
-/* harmony import */ var primeng_paginator__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! primeng/paginator */ "6t4m");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/cdk/scrolling */ "vxfF");
-/* harmony import */ var _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/components/spinner/spinner.component */ "4Kj8");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./login/login.component */ "vtpD");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _shared_services_authentication_interceptor__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./shared/services/authentication.interceptor */ "i55S");
-/* harmony import */ var _login_new_login_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./login/new-login.component */ "r4Ux");
-/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./navbar/navbar.component */ "kWWo");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _shared_services_url_interceptor__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./shared/services/url.interceptor */ "jREh");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/core */ "fXoL");
-
+/* harmony import */ var _student_student_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./student/student.component */ "hLTS");
+/* harmony import */ var primeng_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primeng/table */ "rEr+");
+/* harmony import */ var primeng_toolbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primeng/toolbar */ "5EWq");
+/* harmony import */ var primeng_fileupload__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/fileupload */ "NCSE");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "1kSV");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var primeng_messages__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/messages */ "dts7");
+/* harmony import */ var primeng_message__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! primeng/message */ "FMpt");
+/* harmony import */ var primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! primeng/dynamicdialog */ "J7/z");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/toast */ "Gxio");
+/* harmony import */ var _student_edit_student_component_edit_student_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./student/edit-student.component/edit-student.component */ "7qAy");
+/* harmony import */ var primeng_dropdown__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! primeng/dropdown */ "arFO");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! primeng/api */ "7zfz");
+/* harmony import */ var primeng_paginator__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! primeng/paginator */ "6t4m");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/cdk/scrolling */ "vxfF");
+/* harmony import */ var _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./shared/components/spinner/spinner.component */ "4Kj8");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./login/login.component */ "vtpD");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _shared_services_authentication_interceptor__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/services/authentication.interceptor */ "i55S");
+/* harmony import */ var _login_new_login_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./login/new-login.component */ "r4Ux");
+/* harmony import */ var _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./navbar/navbar.component */ "kWWo");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _shared_services_url_interceptor__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/services/url.interceptor */ "jREh");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/core */ "fXoL");
 
 
 
@@ -613,80 +611,78 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '*', component: _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_26__["LoginComponent"] },
-    { path: 'newlogin', component: _login_new_login_component__WEBPACK_IMPORTED_MODULE_29__["NewLoginComponent"] },
-    { path: 'students', component: _student_student_component__WEBPACK_IMPORTED_MODULE_9__["StudentComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"] },
+    { path: 'newlogin', component: _login_new_login_component__WEBPACK_IMPORTED_MODULE_28__["NewLoginComponent"] },
+    { path: 'students', component: _student_student_component__WEBPACK_IMPORTED_MODULE_8__["StudentComponent"] },
 ];
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵdefineInjector"]({ providers: [
-        primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_17__["DialogService"],
-        primeng_api__WEBPACK_IMPORTED_MODULE_22__["MessageService"],
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_32__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_32__["ɵɵdefineInjector"]({ providers: [
+        primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_16__["DialogService"],
+        primeng_api__WEBPACK_IMPORTED_MODULE_21__["MessageService"],
         {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-            useClass: _shared_services_url_interceptor__WEBPACK_IMPORTED_MODULE_32__["UrlInterceptor"],
+            useClass: _shared_services_url_interceptor__WEBPACK_IMPORTED_MODULE_31__["UrlInterceptor"],
             multi: true,
         },
         {
             provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-            useClass: _shared_services_authentication_interceptor__WEBPACK_IMPORTED_MODULE_28__["AuthenticationInterceptor"],
+            useClass: _shared_services_authentication_interceptor__WEBPACK_IMPORTED_MODULE_27__["AuthenticationInterceptor"],
             multi: true,
         },
-        { provide: _angular_common__WEBPACK_IMPORTED_MODULE_31__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_31__["HashLocationStrategy"] },
+        { provide: _angular_common__WEBPACK_IMPORTED_MODULE_30__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_30__["HashLocationStrategy"] },
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__["BrowserAnimationsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_1__["AppRoutingModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            primeng_radioButton__WEBPACK_IMPORTED_MODULE_8__["RadioButtonModule"],
             primeng_button__WEBPACK_IMPORTED_MODULE_5__["ButtonModule"],
             primeng_checkbox__WEBPACK_IMPORTED_MODULE_6__["CheckboxModule"],
             primeng_accordion__WEBPACK_IMPORTED_MODULE_4__["AccordionModule"],
             primeng_panel__WEBPACK_IMPORTED_MODULE_7__["PanelModule"],
-            primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"],
-            primeng_toolbar__WEBPACK_IMPORTED_MODULE_11__["ToolbarModule"],
-            primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__["FileUploadModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"],
+            primeng_table__WEBPACK_IMPORTED_MODULE_9__["TableModule"],
+            primeng_toolbar__WEBPACK_IMPORTED_MODULE_10__["ToolbarModule"],
+            primeng_fileupload__WEBPACK_IMPORTED_MODULE_11__["FileUploadModule"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"],
             primeng_button__WEBPACK_IMPORTED_MODULE_5__["ButtonModule"],
-            primeng_messages__WEBPACK_IMPORTED_MODULE_15__["MessagesModule"],
-            primeng_message__WEBPACK_IMPORTED_MODULE_16__["MessageModule"],
-            primeng_toast__WEBPACK_IMPORTED_MODULE_19__["ToastModule"],
-            primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_17__["DynamicDialogModule"],
-            primeng_dropdown__WEBPACK_IMPORTED_MODULE_21__["DropdownModule"],
-            primeng_paginator__WEBPACK_IMPORTED_MODULE_23__["PaginatorModule"],
-            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_24__["ScrollingModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_27__["RouterModule"].forRoot(routes),
+            primeng_messages__WEBPACK_IMPORTED_MODULE_14__["MessagesModule"],
+            primeng_message__WEBPACK_IMPORTED_MODULE_15__["MessageModule"],
+            primeng_toast__WEBPACK_IMPORTED_MODULE_18__["ToastModule"],
+            primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_16__["DynamicDialogModule"],
+            primeng_dropdown__WEBPACK_IMPORTED_MODULE_20__["DropdownModule"],
+            primeng_paginator__WEBPACK_IMPORTED_MODULE_22__["PaginatorModule"],
+            _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_23__["ScrollingModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_26__["RouterModule"].forRoot(routes),
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_33__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-        _student_student_component__WEBPACK_IMPORTED_MODULE_9__["StudentComponent"],
-        _student_edit_student_component_edit_student_component__WEBPACK_IMPORTED_MODULE_20__["EditStudentComponent"],
-        _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_25__["SpinnerComponent"],
-        _login_login_component__WEBPACK_IMPORTED_MODULE_26__["LoginComponent"],
-        _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_30__["NavbarComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_18__["BrowserAnimationsModule"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_32__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
+        _student_student_component__WEBPACK_IMPORTED_MODULE_8__["StudentComponent"],
+        _student_edit_student_component_edit_student_component__WEBPACK_IMPORTED_MODULE_19__["EditStudentComponent"],
+        _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_24__["SpinnerComponent"],
+        _login_login_component__WEBPACK_IMPORTED_MODULE_25__["LoginComponent"],
+        _navbar_navbar_component__WEBPACK_IMPORTED_MODULE_29__["NavbarComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
+        _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_1__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-        primeng_radioButton__WEBPACK_IMPORTED_MODULE_8__["RadioButtonModule"],
         primeng_button__WEBPACK_IMPORTED_MODULE_5__["ButtonModule"],
         primeng_checkbox__WEBPACK_IMPORTED_MODULE_6__["CheckboxModule"],
         primeng_accordion__WEBPACK_IMPORTED_MODULE_4__["AccordionModule"],
         primeng_panel__WEBPACK_IMPORTED_MODULE_7__["PanelModule"],
-        primeng_table__WEBPACK_IMPORTED_MODULE_10__["TableModule"],
-        primeng_toolbar__WEBPACK_IMPORTED_MODULE_11__["ToolbarModule"],
-        primeng_fileupload__WEBPACK_IMPORTED_MODULE_12__["FileUploadModule"],
-        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_13__["NgbModule"],
+        primeng_table__WEBPACK_IMPORTED_MODULE_9__["TableModule"],
+        primeng_toolbar__WEBPACK_IMPORTED_MODULE_10__["ToolbarModule"],
+        primeng_fileupload__WEBPACK_IMPORTED_MODULE_11__["FileUploadModule"],
+        _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"],
         primeng_button__WEBPACK_IMPORTED_MODULE_5__["ButtonModule"],
-        primeng_messages__WEBPACK_IMPORTED_MODULE_15__["MessagesModule"],
-        primeng_message__WEBPACK_IMPORTED_MODULE_16__["MessageModule"],
-        primeng_toast__WEBPACK_IMPORTED_MODULE_19__["ToastModule"],
-        primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_17__["DynamicDialogModule"],
-        primeng_dropdown__WEBPACK_IMPORTED_MODULE_21__["DropdownModule"],
-        primeng_paginator__WEBPACK_IMPORTED_MODULE_23__["PaginatorModule"],
-        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_24__["ScrollingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_27__["RouterModule"]] }); })();
+        primeng_messages__WEBPACK_IMPORTED_MODULE_14__["MessagesModule"],
+        primeng_message__WEBPACK_IMPORTED_MODULE_15__["MessageModule"],
+        primeng_toast__WEBPACK_IMPORTED_MODULE_18__["ToastModule"],
+        primeng_dynamicdialog__WEBPACK_IMPORTED_MODULE_16__["DynamicDialogModule"],
+        primeng_dropdown__WEBPACK_IMPORTED_MODULE_20__["DropdownModule"],
+        primeng_paginator__WEBPACK_IMPORTED_MODULE_22__["PaginatorModule"],
+        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_23__["ScrollingModule"], _angular_router__WEBPACK_IMPORTED_MODULE_26__["RouterModule"]] }); })();
 
 
 /***/ }),
@@ -1340,7 +1336,7 @@ NavbarComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, NavbarComponent_div_0_Template, 18, 0, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLogin);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]], styles: ["ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\r\n  padding: 1rem !important;\r\n}\r\n\r\na[_ngcontent-%COMP%] {\r\n  text-decoration: none;\r\n  list-style: none;\r\n  padding: 16px;\r\n  font-size: 1.5rem;\r\n}\r\n\r\na[_ngcontent-%COMP%], a[_ngcontent-%COMP%]:hover {\r\n  text-decoration: none;\r\n  color: rgba(255, 255, 255, 0.75);\r\n}\r\n\r\n.header[_ngcontent-%COMP%] {\r\n  padding: 1rem;\r\n  color: white;\r\n}\r\n\r\na[_ngcontent-%COMP%] {\r\n  color: rgb(255, 255, 255);\r\n}\r\n\r\nul[_ngcontent-%COMP%], ol[_ngcontent-%COMP%] {\r\n  list-style-type: none;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UscUJBQXFCO0VBQ3JCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25COztBQUVBOztFQUVFLHFCQUFxQjtFQUNyQixnQ0FBZ0M7QUFDbEM7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsWUFBWTtBQUNkOztBQUNBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUNBOztFQUVFLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJuYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInVsIGxpIHtcclxuICBwYWRkaW5nOiAxcmVtICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbmEge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBsaXN0LXN0eWxlOiBub25lO1xyXG4gIHBhZGRpbmc6IDE2cHg7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbn1cclxuXHJcbmEsXHJcbmE6aG92ZXIge1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjc1KTtcclxufVxyXG5cclxuLmhlYWRlciB7XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuYSB7XHJcbiAgY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcclxufVxyXG51bCxcclxub2wge1xyXG4gIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxufVxyXG4iXX0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]], styles: ["ul[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  padding: 1rem !important;\n}\n\na[_ngcontent-%COMP%] {\n  text-decoration: none;\n  list-style: none;\n  padding: 16px;\n  font-size: 1.5rem;\n}\n\na[_ngcontent-%COMP%], a[_ngcontent-%COMP%]:hover {\n  text-decoration: none;\n  color: rgba(255, 255, 255, 0.75);\n}\n\n.header[_ngcontent-%COMP%] {\n  padding: 1rem;\n  color: white;\n}\n\na[_ngcontent-%COMP%] {\n  color: rgb(255, 255, 255);\n}\n\nul[_ngcontent-%COMP%], ol[_ngcontent-%COMP%] {\n  list-style-type: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usd0JBQXdCO0FBQzFCOztBQUVBO0VBQ0UscUJBQXFCO0VBQ3JCLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25COztBQUVBOztFQUVFLHFCQUFxQjtFQUNyQixnQ0FBZ0M7QUFDbEM7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsWUFBWTtBQUNkOztBQUNBO0VBQ0UseUJBQXlCO0FBQzNCOztBQUNBOztFQUVFLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJuYXZiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInVsIGxpIHtcbiAgcGFkZGluZzogMXJlbSAhaW1wb3J0YW50O1xufVxuXG5hIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBsaXN0LXN0eWxlOiBub25lO1xuICBwYWRkaW5nOiAxNnB4O1xuICBmb250LXNpemU6IDEuNXJlbTtcbn1cblxuYSxcbmE6aG92ZXIge1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNzUpO1xufVxuXG4uaGVhZGVyIHtcbiAgcGFkZGluZzogMXJlbTtcbiAgY29sb3I6IHdoaXRlO1xufVxuYSB7XG4gIGNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XG59XG51bCxcbm9sIHtcbiAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xufVxuIl19 */"] });
 
 
 /***/ }),

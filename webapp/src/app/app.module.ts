@@ -8,7 +8,6 @@ import { AccordionModule } from 'primeng/accordion';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PanelModule } from 'primeng/panel';
-import { RadioButtonModule } from 'primeng/radioButton';
 import { StudentComponent } from './student/student.component';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -57,7 +56,6 @@ const routes: Routes = [
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RadioButtonModule,
     ButtonModule,
     CheckboxModule,
     AccordionModule,

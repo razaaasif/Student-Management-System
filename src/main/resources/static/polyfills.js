@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\workspace\Udemy Learning\PROJECTS\angular 11.0.0\Student-Management-System\webapp\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/hamid/workspace/Student-Management-System/webapp/src/polyfills.ts */"hN/g");
 
 
 /***/ }),
